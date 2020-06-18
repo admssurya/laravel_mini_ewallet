@@ -4,13 +4,14 @@ namespace App\Http\Controllers\API;
 
 use App\Exceptions\APIException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Transformers\UserTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         if (!auth()->attempt($request->only(['email', 'password']))) :
             throw new APIException('Invalid credential');
