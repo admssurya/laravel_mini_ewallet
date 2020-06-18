@@ -31,6 +31,8 @@ Route::group(['namespace' => 'API'], static function() {
             Route::post('logout', 'AuthController@logout');
         });
 
+        Route::resource('user','UserController');
+
         Route::get('test', function () {
             return [
                 'payload' => 'tes'

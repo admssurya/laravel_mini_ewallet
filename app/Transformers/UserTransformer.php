@@ -42,6 +42,7 @@ class UserTransformer extends TransformerAbstract
     {
         $returnData = collect([
             'id'        => $user->id,
+            'name'      => $user->name,
             'username'  => $user->username,
             'email'     => $user->email,
         ]);
