@@ -25,7 +25,6 @@ class UpdateUserBalanceHistoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_balance_id' => 'required',
             'balance_before' => 'required',
             'balance_after' => 'required',
             'activity' => 'required',

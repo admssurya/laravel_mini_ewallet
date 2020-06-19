@@ -36,18 +36,18 @@ abstract class AbstractBaseService implements AppServiceInterface
 
     public function update(Request $request, $id)
     {
-        $model = $this->getById($id);
-        $model->fill($request->all());
-        $model->save();
+        $this->model = $this->getById($id);
+        $this->model->fill($request->all());
+        $this->model->save();
 
-        return $model;
+        return $this->model;
     }
 
     public function delete($id)
     {
-        $model = $this->getById($id);
-        $model->delete();
+        $this->model = $this->getById($id);
+        $this->model->delete();
 
-        return $model;
+        return $this->model;
     }
 }
