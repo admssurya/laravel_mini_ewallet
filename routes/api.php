@@ -33,12 +33,7 @@ Route::group(['namespace' => 'API'], static function() {
 
         Route::resource('user','UserController');
         Route::resource('user-balance','UserBalanceController');
-
-        Route::get('test', function () {
-            return [
-                'payload' => 'tes'
-            ];
-        });
+        Route::resource('user-balance-history','UserBalanceHistoryController');
     });
 });
 

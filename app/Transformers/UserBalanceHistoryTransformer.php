@@ -34,6 +34,8 @@ class UserBalanceHistoryTransformer extends TransformerAbstract
     public function transform(UserBalanceHistory $userBalanceHistory)
     {
         return [
+            'id' => $userBalanceHistory->id,
+            'user_balance_id' => $userBalanceHistory->user_balance_id,
             'balance_before' => $userBalanceHistory->balance_before,
             'balance_after' => $userBalanceHistory->balance_after,
             'activity' => $userBalanceHistory->activity,
