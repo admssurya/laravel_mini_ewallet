@@ -34,6 +34,8 @@ Route::group(['namespace' => 'API'], static function() {
         Route::resource('user','UserController');
         Route::resource('user-balance','UserBalanceController');
         Route::resource('user-balance-history','UserBalanceHistoryController');
+        Route::resource('balance-bank','BalanceBankController');
+        Route::resource('balance-bank-history','BalanceBankHistoryController');
     });
 });
 
