@@ -52,7 +52,6 @@ class UserController extends Controller
      */
     public function show($id, UserService $userService)
     {
-        $this->validation($userService, $id);
         $user = $userService->getById($id);
 
         return [
@@ -71,7 +70,6 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, $id, UserService $userService)
     {
-        $this->validation($userService, $id);
         $user = $userService->update($request, $id);
 
         return [
@@ -89,18 +87,10 @@ class UserController extends Controller
      */
     public function destroy($id, UserService $userService)
     {
-        $this->validation($userService, $id);
         $user = $userService->delete($id);
 
         return [
             'payload' => fractal($user, new UserTransformer())
         ];
-    }
-
-    private function validation(UserService $userService, $id)
-    {
-        if (!$userService->getById($id)) :
-            throw new APIException('Data Not Found');
-        endif;
     }
 }
