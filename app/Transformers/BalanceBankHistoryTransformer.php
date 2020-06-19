@@ -34,6 +34,8 @@ class BalanceBankHistoryTransformer extends TransformerAbstract
     public function transform(BalanceBankHistory $balanceBankHistory)
     {
         return [
+            'id' => $balanceBankHistory->id,
+            'balance_bank_id' => $balanceBankHistory->balance_bank_id,
             'balance_before' => $balanceBankHistory->balance_before,
             'balance_after' => $balanceBankHistory->balance_after,
             'activity' => $balanceBankHistory->activity,

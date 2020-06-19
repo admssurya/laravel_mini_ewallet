@@ -34,6 +34,7 @@ class BalanceBankTransformer extends TransformerAbstract
     public function transform(BalanceBank $balanceBank)
     {
         return [
+            'id' => $balanceBank->id,
             'balance' => $balanceBank->balance,
             'balance_achieve' => $balanceBank->balance_achieve,
             'code' => $balanceBank->code,
