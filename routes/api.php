@@ -32,6 +32,7 @@ Route::group(['namespace' => 'API'], static function() {
         });
 
         Route::resource('user','UserController');
+        Route::resource('user-balance','UserBalanceController');
 
         Route::get('test', function () {
             return [

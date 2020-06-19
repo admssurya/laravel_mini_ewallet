@@ -15,4 +15,9 @@ class UserBalance extends AbstractBaseModel
     {
         return $this->belongsTo(User::class);
     }
+
+    public function userBalanceHistory()
+    {
+        return $this->hasOne(UserBalanceHistory::class);
+    }
 }
