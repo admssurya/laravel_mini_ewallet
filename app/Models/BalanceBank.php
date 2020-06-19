@@ -13,4 +13,9 @@ class BalanceBank extends AbstractBaseModel
         'enable'
     ];
 
+    public function balanceBankHistory()
+    {
+        return $this->hasOne(BalanceBankHistory::class);
+    }
+
 }
