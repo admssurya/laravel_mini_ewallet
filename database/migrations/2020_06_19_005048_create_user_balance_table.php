@@ -20,6 +20,12 @@ class CreateUserBalanceTable extends Migration
             $table->integer('balance_achieve');
             $table->timestampsTz();
             $table->softDeletesTz();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
