@@ -13,7 +13,7 @@ class CreateUserBalanceHistoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_balance_history', function (Blueprint $table) {
+        Schema::create('user_balance_histories', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_balance_id');
             $table->integer('balance_before');
@@ -42,6 +42,7 @@ class CreateUserBalanceHistoryTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('user_balance_history');
     }
 }
