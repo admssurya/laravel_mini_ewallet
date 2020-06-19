@@ -36,8 +36,6 @@ class CreateUserBalanceTable extends Migration
      */
     public function down()
     {
-        Schema::table('user_balances', function (Blueprint $table) {
-            $table->dropIfExists();
-        });
+        Schema::dropIfExists('user_balances');
     }
 }
