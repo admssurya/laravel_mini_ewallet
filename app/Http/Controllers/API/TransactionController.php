@@ -34,9 +34,30 @@ class TransactionController extends Controller
     /**
      * @param TransferRequest $request
      * @param TransactionService $transactionService
+     * @return array
+     * @throws APIException
      */
     public function transfer(TransferRequest $request, TransactionService $transactionService)
     {
-        $transactionService->transfer($request);
+        $transfer = $transactionService->transfer($request);
+
+        return [
+            "payload"   => (object) [
+                'user_balance' => fractal($transfer['user_balance'], new UserBalanceTransformer())->parseIncludes('user_balance_history'),
+                'balance_bank' => fractal($transfer['balance_bank'], new BalanceBankTransformer())->parseIncludes('balance_bank_history')
+            ]
+        ];
+    }
+
+    public function balanceCheck(Request $request, TransactionService $transactionService)
+    {
+        $history = $transactionService->balanceCheck($request);
+
+        return [
+            "payload"   => (object) [
+                'user_balance' => fractal($history['user_balance'], new UserBalanceTransformer())->parseIncludes('user_balance_history'),
+                'balance_bank' => fractal($history['balance_bank'], new BalanceBankTransformer())->parseIncludes('balance_bank_history')
+            ]
+        ];
     }
 }

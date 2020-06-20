@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-
-
 Route::group(['namespace' => 'API'], static function() {
 
     Route::group(['prefix' => 'auth'], static function () {
@@ -39,13 +34,8 @@ Route::group(['namespace' => 'API'], static function() {
 
         Route::post('top-up','TransactionController@topUp');
         Route::post('transfer','TransactionController@transfer');
+        Route::get('balance-check','TransactionController@balanceCheck');
     });
 });
-
-//Route::get('test', function () {
-//    return [
-//        'payload' => 'tes'
-//    ];
-//});
 
 

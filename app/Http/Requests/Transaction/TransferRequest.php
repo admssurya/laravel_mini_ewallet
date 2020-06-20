@@ -13,7 +13,7 @@ class TransferRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class TransferRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'amount' => 'required|numeric',
+            'activity' => 'required',
+            'ip' => 'required',
+            'location' => 'required',
+            'user_agent' => 'required',
+            'author' => 'required'
         ];
     }
 }
