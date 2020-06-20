@@ -9,9 +9,21 @@
 
 ## Mini Wallet
 
-This application use Laravel Framework, for server requirements can be found at [documentation](https://laravel.com/docs)
+This project use Laravel Framework, for server requirements can be found at [documentation](https://laravel.com/docs)
 
-To get started, after clone this project, install dependency using composer:
+After clone this project, create env file with duplicate .env.example file. For Database this project use MySql so you must create new database.
+
+Environmental Database Configuration:
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_databasename
+    DB_USERNAME=your_mysql_username
+    DB_PASSWORD=your_mysql_password
+
+
+Install dependency composer:
 
     ➜  ~ composer install
     
