@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\User;
 use App\Models\UserBalance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserBalanceService extends AbstractBaseService
 {
@@ -16,6 +17,11 @@ class UserBalanceService extends AbstractBaseService
     {
         $this->model = $userBalance;
         $this->userService = $userService;
+    }
+
+    public function getAll()
+    {
+        return $this->model->where('user_id', Auth::user()->id)->get();
     }
 
     public function create(Request $request)
