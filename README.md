@@ -35,14 +35,18 @@ Run NPM
 
     ➜  ~ npm run dev
 
-For Database Migration:
+Database Migration:
 
     ➜  ~ php artisan migrate
     
-For Database Seeding:
+Database Seeding:
 
     ➜  ~ php artisan db:seed
     
+Install Passport:
+
+    ➜  ~ php artisan passport:install
+
 For start Local Development Server: 
 
     ➜  ~ php artisan serve
