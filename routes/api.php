@@ -36,6 +36,9 @@ Route::group(['namespace' => 'API'], static function() {
         Route::resource('user-balance-history','UserBalanceHistoryController');
         Route::resource('balance-bank','BalanceBankController');
         Route::resource('balance-bank-history','BalanceBankHistoryController');
+
+        Route::post('top-up','TransactionController@topUp');
+        Route::post('transfer','TransactionController@transfer');
     });
 });
 
