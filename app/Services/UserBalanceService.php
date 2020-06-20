@@ -27,7 +27,7 @@ class UserBalanceService extends AbstractBaseService
     public function create(Request $request)
     {
         // relation
-        $this->model->user()->associate($this->userService->getById($request->get('user_id')));
+        $this->model->user()->associate(Auth::user());
 
         return parent::create($request);
     }
@@ -35,7 +35,7 @@ class UserBalanceService extends AbstractBaseService
     public function update(Request $request, $id)
     {
         // relation
-        $this->model->user()->associate($this->userService->getById($request->get('user_id')));
+        $this->model->user()->associate(Auth::user());
 
         return parent::update($request, $id);
     }
