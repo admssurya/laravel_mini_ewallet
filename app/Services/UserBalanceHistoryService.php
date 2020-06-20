@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Models\UserBalanceHistory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserBalanceHistoryService extends AbstractBaseService
 {
@@ -15,6 +16,13 @@ class UserBalanceHistoryService extends AbstractBaseService
     {
         $this->model = $userBalanceHistory;
         $this->userBalanceService = $userBalanceService;
+    }
+
+    public function getAll()
+    {
+        return $this->model->whereHas('userBalance', function ($query) {
+            $query->where('user_id', Auth::user()->id);
+        })->get();
     }
 
     public function create(Request $request)
