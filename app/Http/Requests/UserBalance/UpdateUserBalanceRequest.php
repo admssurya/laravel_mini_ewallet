@@ -24,7 +24,6 @@ class UpdateUserBalanceRequest extends FormRequest
     public function rules()
     {
         return [
-            "user_id" => 'required',
             "balance" => 'required',
             "balance_achieve" => 'required'
         ];
