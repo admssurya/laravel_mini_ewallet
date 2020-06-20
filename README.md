@@ -11,7 +11,7 @@
 
 This project use Laravel Framework, for server requirements can be found at [documentation](https://laravel.com/docs)
 
-After clone this project, create env file with duplicate .env.example file. For Database this project use MySql so you must create new database.
+After clone this project, create env file with duplicate .env.example file and rename with .env. For Database this project use MySql so you must create new database.
 
 Environmental Database Configuration:
 
