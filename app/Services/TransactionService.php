@@ -6,6 +6,8 @@ namespace App\Services;
 
 use App\Constants\TypeConstant;
 use App\Exceptions\APIException;
+use App\Models\BalanceBank;
+use App\Models\UserBalance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,14 +28,11 @@ class TransactionService
 
     public function topUp(Request $request)
     {
-        $balanceBanks = collect($this->balanceBankService->getAll());
-        $userBalances = collect($this->userBalanceService->getAll());
-
-        $lastBalanceBank = $balanceBanks->sortBy('created_at')->last();
-        $lastUserBalance = $userBalances->sortBy('created_at')->last();
+        $lastUserBalance = UserBalance::orderBy('created_at', 'DESC')->first();
+        $lastBalanceBank = BalanceBank::orderBy('created_at','DESC')->first();
 
         // validation
-        if (!$balanceBanks) :
+        if (!$lastBalanceBank) :
             throw new APIException('Balance Bank Empty');
         endif;
 
@@ -127,4 +126,5 @@ class TransactionService
     {
 
     }
+
 }
