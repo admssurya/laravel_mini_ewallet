@@ -45,9 +45,9 @@ class TransactionService
             throw new APIException('Your Balance Not Enough');
         endif;
 
-//        if (!$lastBalanceBank->enable) :
-//            throw new APIException('Bank Not Available Right Now');
-//        endif;
+        if (!$lastBalanceBank->enable) :
+            throw new APIException('Bank Not Available Right Now');
+        endif;
 
         $balanceBeforeUserBalanceHistory = @$lastUserBalance->balance;
         $balanceAfterUserBalanceHistory = $balanceBeforeUserBalanceHistory + $request->get('amount');
